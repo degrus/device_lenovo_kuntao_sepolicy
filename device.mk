@@ -156,10 +156,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     XiaomiDoze
 
-#Dirac
-PRODUCT_PACKAGES += \
-     LenovoDirac
-
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl \

@@ -24,7 +24,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.audio.playback.mch.downsample=true \
     vendor.audio.safx.pbe.enabled=true \
     vendor.voice.path.for.pcm.voip=true \
-    persist.audio.dirac.speaker=true \
     ro.af.client_heap_size_kbyte=7168 \
     persist.vendor.audio.hw.binder.size_kbyte=1024
 
