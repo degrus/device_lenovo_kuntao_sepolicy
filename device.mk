@@ -330,9 +330,7 @@ PRODUCT_PACKAGES += \
     init.mmi.usb.sh \
     move_widevine_data.sh \
     init.qti.fm.sh \
-    init.qcom.sh \
     init.advandec.parts.rc \
-    init.qcom.post_boot.sh \
     fstab.qcom \
     init.qcom.rc \
     init.mmi.usb.rc \
