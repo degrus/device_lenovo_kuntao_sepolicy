@@ -27,7 +27,6 @@
 
 import /vendor/etc/init/hw/init.mmi.usb.rc
 import /vendor/etc/init/hw/init.msm.usb.configfs.rc
-import /vendor/etc/init/hw/init.advandec.parts.rc
 import /vendor/etc/init/hw/init.qcom.power.rc
 
 on early-init
@@ -1294,6 +1293,7 @@ on property:ro.vendor.radio.noril=*
 service charger /charger
     class charger
     group system graphics
+    seclabel u:r:healthd:s0
 
 service qlogd /system/xbin/qlogd
     socket qlogd stream 0662 system system

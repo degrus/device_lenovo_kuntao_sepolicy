@@ -130,7 +130,6 @@ TARGET_USES_OVERLAY := true
 # Kernel
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_CMDLINE := sched_enable_hmp=1 sched_enable_power_aware=1 console=null androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 androidboot.bootdevice=7824900.sdhci androidboot.emmc=true
-BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_KERNEL_CMDLINE += firmware_class.path=/vendor/firmware_mnt/image
 BOARD_KERNEL_CMDLINE += loop.max_part=7
 BOARD_KERNEL_PAGESIZE := 2048
@@ -179,8 +178,9 @@ TARGET_USES_INTERACTION_BOOST := true
 # Enable real time lockscreen charging current values
 BOARD_GLOBAL_CFLAGS += -DBATTERY_REAL_INFO
 
-# Property
+# Treble
 BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
+PRODUCT_FULL_TREBLE_OVERRIDE := true
 
 # Qualcomm support
 BOARD_USES_QCOM_HARDWARE := true
@@ -196,9 +196,8 @@ USE_OPENGL_RENDERER := true
 TARGET_RIL_VARIANT := caf
 
 # SELinux
-#BOARD_SEPOLICY_DIRS += device/lenovo/kuntao/sepolicy
-#include device/qcom/sepolicy/sepolicy.mk
-BOARD_SEPOLICY_VERS := 28.0
+BOARD_SEPOLICY_DIRS += device/lenovo/kuntao/sepolicy
+include device/qcom/sepolicy/sepolicy.mk
 
 # GPS
 USE_DEVICE_SPECIFIC_GPS := true
@@ -208,6 +207,7 @@ BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := $(TARGET_BOARD_PLATFORM)
 DEVICE_MANIFEST_FILE := device/lenovo/kuntao/manifest.xml
 DEVICE_MATRIX_FILE := device/lenovo/kuntao/compatibility_matrix.xml
 DEVICE_FRAMEWORK_MANIFEST_FILE := device/lenovo/kuntao/framework_manifest.xml
+DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := device/lenovo/kuntao/vendor_framework_compatibility_matrix.xml
 
 # Security patch level
 VENDOR_SECURITY_PATCH := 2017-11-01
@@ -222,3 +222,6 @@ BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_qcwcn
 WIFI_DRIVER_FW_PATH_AP := "ap"
 WIFI_DRIVER_FW_PATH_STA := "sta"
 WPA_SUPPLICANT_VERSION := VER_0_8_X
+
+# Inherit from the proprietary version
+include vendor/lenovo/kuntao/BoardConfigVendor.mk

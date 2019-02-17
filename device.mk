@@ -22,6 +22,9 @@ DEVICE_PACKAGE_OVERLAYS += \
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
+PRODUCT_ENFORCE_RRO_TARGETS := \
+    framework-res
+
 # Permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.midi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.midi.xml \
@@ -66,10 +69,15 @@ PRODUCT_PACKAGES += \
     libqcompostprocbundle
 
 PRODUCT_PACKAGES += \
-    android.hardware.audio@4.0-impl \
+    android.hardware.audio@2.0-impl \
     android.hardware.audio@2.0-service \
+    android.hardware.audio@4.0 \
+    android.hardware.audio@4.0-impl \
+    android.hardware.audio.common@4.0 \
+    android.hardware.audio.common@4.0-util \
+    android.hardware.audio.effect@2.0-impl \
+    android.hardware.audio.effect@4.0 \
     android.hardware.audio.effect@4.0-impl \
-    android.hardware.audio.effect@2.0-service \
     android.hardware.soundtrigger@2.1-impl
 
 PRODUCT_COPY_FILES += \
@@ -101,8 +109,8 @@ PRODUCT_COPY_FILES += \
     external/ant-wireless/antradio-library/com.dsi.ant.antradio_library.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/com.dsi.ant.antradio_library.xml
 
 # AdvancedControls
-PRODUCT_PACKAGES += \
-    AdvancedControls
+#PRODUCT_PACKAGES += \
+#    AdvancedControls
 
 # Charger
 PRODUCT_PACKAGES += \
@@ -153,8 +161,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/qdcm_calib_data_mipi_mot_cmd_smd_1080p_549.xml:$(TARGET_COPY_OUT_VENDOR)/etc/qdcm_calib_data_mipi_mot_cmd_smd_1080p_549.xml
 
 # Doze mode
-PRODUCT_PACKAGES += \
-    XiaomiDoze
+#PRODUCT_PACKAGES += \
+#    XiaomiDoze
 
 # DRM
 PRODUCT_PACKAGES += \
@@ -255,8 +263,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/synaptics_dsx_i2c.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/synaptics_dsx_i2c.kl \
     $(LOCAL_PATH)/keylayout/synaptics_dsxv26.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/synaptics_dsxv26.kl \
     $(LOCAL_PATH)/keylayout/synaptics_rmi4_i2c.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/synaptics_rmi4_i2c.kl \
-    $(LOCAL_PATH)/keylayout/Validity_Navigation_Sensor.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Validity_Navigation_Sensor.kl \
-    $(LOCAL_PATH)/keylayout/Validity_Navigation_Sensor.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/Validity_Navigation_Sensor.idc
+    $(LOCAL_PATH)/keylayout/Validity_Navigation_Sensor.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Validity_Navigation_Sensor.kl
 
 # Lights
 PRODUCT_PACKAGES += \
@@ -272,7 +279,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml
 
 # Properties
--include $(LOCAL_PATH)/vendor_prop.mk
+include $(LOCAL_PATH)/vendor_prop.mk
 
 # Seccomp policy
 PRODUCT_COPY_FILES += \
@@ -331,7 +338,6 @@ PRODUCT_PACKAGES += \
     move_widevine_data.sh \
     init.qti.fm.sh \
     init.qcom.power.rc \
-    init.advandec.parts.rc \
     fstab.qcom \
     init.qcom.rc \
     init.mmi.usb.rc \
