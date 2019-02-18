@@ -39,10 +39,8 @@ $(LOCAL_BUILT_MODULE): $(LOCAL_PATH)/Android.mk
 $(LOCAL_BUILT_MODULE):
 	$(hide) echo "Making symlinks for wifi"
 	$(hide) mkdir -p $(dir $@)
-	$(hide) mkdir -p $(dir $(WCNSS_INI_SYMLINK))
+	$(hide) mkdir -p $(dir $(WCNSS_BIN_SYMLINK))
 	$(hide) rm -rf $@
-	$(hide) rm -rf $(WCNSS_INI_SYMLINK)
-	$(hide) ln -sf $(ACTUAL_INI_FILE) $(WCNSS_INI_SYMLINK)
 	$(hide) rm -rf $(WCNSS_BIN_SYMLINK)
 	$(hide) ln -sf $(ACTUAL_BIN_FILE) $(WCNSS_BIN_SYMLINK)
 	$(hide) rm -rf $(WCNSS_DAT_SYMLINK)
