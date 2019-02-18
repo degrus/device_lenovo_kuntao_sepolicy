@@ -180,7 +180,6 @@ BOARD_GLOBAL_CFLAGS += -DBATTERY_REAL_INFO
 
 # Treble
 BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
-PRODUCT_FULL_TREBLE_OVERRIDE := true
 
 # Qualcomm support
 BOARD_USES_QCOM_HARDWARE := true
@@ -207,7 +206,6 @@ BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := $(TARGET_BOARD_PLATFORM)
 DEVICE_MANIFEST_FILE := device/lenovo/kuntao/manifest.xml
 DEVICE_MATRIX_FILE := device/lenovo/kuntao/compatibility_matrix.xml
 DEVICE_FRAMEWORK_MANIFEST_FILE := device/lenovo/kuntao/framework_manifest.xml
-DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := device/lenovo/kuntao/vendor_framework_compatibility_matrix.xml
 
 # Security patch level
 VENDOR_SECURITY_PATCH := 2017-11-01
@@ -219,6 +217,8 @@ BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_qcwcn
 BOARD_WLAN_DEVICE := qcwcn
 BOARD_WPA_SUPPLICANT_DRIVER := NL80211
 BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_qcwcn
+PRODUCT_VENDOR_MOVE_ENABLED := true
+TARGET_DISABLE_WCNSS_CONFIG_COPY := true
 WIFI_DRIVER_FW_PATH_AP := "ap"
 WIFI_DRIVER_FW_PATH_STA := "sta"
 WPA_SUPPLICANT_VERSION := VER_0_8_X

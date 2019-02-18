@@ -22,9 +22,6 @@ DEVICE_PACKAGE_OVERLAYS += \
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
-PRODUCT_ENFORCE_RRO_TARGETS := \
-    framework-res
-
 # Permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.midi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.midi.xml \
@@ -69,15 +66,10 @@ PRODUCT_PACKAGES += \
     libqcompostprocbundle
 
 PRODUCT_PACKAGES += \
-    android.hardware.audio@2.0-impl \
-    android.hardware.audio@2.0-service \
-    android.hardware.audio@4.0 \
     android.hardware.audio@4.0-impl \
-    android.hardware.audio.common@4.0 \
-    android.hardware.audio.common@4.0-util \
-    android.hardware.audio.effect@2.0-impl \
-    android.hardware.audio.effect@4.0 \
+    android.hardware.audio@2.0-service \
     android.hardware.audio.effect@4.0-impl \
+    android.hardware.audio.effect@2.0-service \
     android.hardware.soundtrigger@2.1-impl
 
 PRODUCT_COPY_FILES += \
@@ -120,15 +112,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     Snap \
     camera.msm8953 \
-    libmm-qcamera \
     android.hardware.camera.provider@2.4-impl \
     android.hardware.camera.provider@2.4-service
-
-PRODUCT_COPY_FILES +=  \
-    $(LOCAL_PATH)/configs/camera/external_camera_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/external_camera_config.xml
-
-PRODUCT_BOOT_JARS += \
-    com.qualcomm.qti.camera
 
 # Display
 PRODUCT_PACKAGES += \
@@ -208,11 +193,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/gps/etc/lowi.conf:$(TARGET_COPY_OUT_VENDOR)/etc/lowi.conf \
     $(LOCAL_PATH)/gps/etc/sap.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sap.conf \
     $(LOCAL_PATH)/gps/etc/xtwifi.conf:$(TARGET_COPY_OUT_VENDOR)/etc/xtwifi.conf
-
-# HIDL
-PRODUCT_PACKAGES += \
-    android.hidl.base@1.0 \
-    android.hidl.manager@1.0
 
 # Healthd
 PRODUCT_PACKAGES += \
@@ -396,7 +376,7 @@ PRODUCT_COPY_FILES += \
 # WiFi HAL
 PRODUCT_PACKAGES += \
     android.hardware.wifi@1.0-service \
-    libwifi-hal-qcom \
+    wcnss_service \
     libwpa_client \
     hostapd \
     wpa_supplicant \
@@ -404,7 +384,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     $(TOPDIR)kernel/lenovo/msm8953/drivers/staging/prima/firmware_bin/WCNSS_cfg.dat:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/prima/WCNSS_cfg.dat \
-    $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini \
+    $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/prima/WCNSS_qcom_cfg.ini \
     $(LOCAL_PATH)/wifi/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \
     $(LOCAL_PATH)/wifi/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf
 

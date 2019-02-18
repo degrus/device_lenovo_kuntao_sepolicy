@@ -561,9 +561,6 @@ lib64/libqti-iopd-client_system.so
 lib64/libqti-util_system.so
 lib64/libqti_performance.so
 
-# Wi-Fi - from Mi A1 tissot_sprout 9 PKQ1.180917.001.V10.0.2.0.PDHMIFK release-keys
-vendor/bin/wcnss_service
-
 # Wi-Fi Display - from Mi A1 tissot_sprout 9 PKQ1.180917.001.V10.0.2.0.PDHMIFK release-keys
 bin/wfdservice
 etc/init/wfdservice.rc
