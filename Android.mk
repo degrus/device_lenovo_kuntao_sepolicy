@@ -51,16 +51,21 @@ $(LOCAL_BUILT_MODULE):
 # Just creating it for all cases since it does not hurt.
 FIRMWARE_MOUNT_POINT := $(TARGET_OUT_VENDOR)/firmware_mnt
 DSP_MOUNT_POINT := $(TARGET_OUT_VENDOR)/dsp
+FSG_MOUNT_POINT := $(TARGET_OUT_VENDOR)/fsg
 
 $(FIRMWARE_MOUNT_POINT):
 	@echo "Creating $(FIRMWARE_MOUNT_POINT)"
 	@mkdir -p $(TARGET_OUT_VENDOR)/firmware_mnt
-	
+
+$(FSG_MOUNT_POINT):
+	@echo "Creating $(FSG_MOUNT_POINT)"
+	@mkdir -p $(TARGET_OUT_VENDOR)/fsg
+
 $(DSP_MOUNT_POINT):
 	@echo "Creating $(DSP_MOUNT_POINT)"
 	@mkdir -p $(TARGET_OUT_VENDOR)/dsp
 
-ALL_DEFAULT_INSTALLED_MODULES += $(FIRMWARE_MOUNT_POINT) $(DSP_MOUNT_POINT)
+ALL_DEFAULT_INSTALLED_MODULES += $(FIRMWARE_MOUNT_POINT) $(DSP_MOUNT_POINT) $(FSG_MOUNT_POINT)
 
 IMS_LIBS := libimscamera_jni.so libimsmedia_jni.so
 

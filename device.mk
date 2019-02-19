@@ -101,8 +101,8 @@ PRODUCT_COPY_FILES += \
     external/ant-wireless/antradio-library/com.dsi.ant.antradio_library.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/com.dsi.ant.antradio_library.xml
 
 # AdvancedControls
-#PRODUCT_PACKAGES += \
-#    AdvancedControls
+PRODUCT_PACKAGES += \
+    AdvancedControls
 
 # Charger
 PRODUCT_PACKAGES += \
@@ -146,8 +146,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/qdcm_calib_data_mipi_mot_cmd_smd_1080p_549.xml:$(TARGET_COPY_OUT_VENDOR)/etc/qdcm_calib_data_mipi_mot_cmd_smd_1080p_549.xml
 
 # Doze mode
-#PRODUCT_PACKAGES += \
-#    XiaomiDoze
+PRODUCT_PACKAGES += \
+    XiaomiDoze
 
 # DRM
 PRODUCT_PACKAGES += \
@@ -196,10 +196,8 @@ PRODUCT_COPY_FILES += \
 
 # Healthd
 PRODUCT_PACKAGES += \
-    android.hardware.health@2.0-service.kuntao
-
-DEVICE_FRAMEWORK_MANIFEST_FILE += \
-    system/libhidl/vintfdata/manifest_healthd_exclude.xml
+    android.hardware.health@2.0-impl \
+    android.hardware.health@2.0-service
 
 # IMS
 PRODUCT_PACKAGES += \
@@ -314,19 +312,21 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     init.qcom.early_boot.sh \
     init.class_main.sh \
+    init.qcom.sh \
     init.mmi.usb.sh \
-    move_widevine_data.sh \
     init.qti.fm.sh \
     init.qcom.power.rc \
     fstab.qcom \
     init.qcom.rc \
     init.mmi.usb.rc \
+    init.advandec.parts.rc \
     init.msm.usb.configfs.rc \
     ueventd.qcom.rc
 
 # LiveDisplay
 PRODUCT_PACKAGES += \
-    vendor.lineage.livedisplay@2.0-service-sdm
+    vendor.lineage.livedisplay@2.0-service-sdm \
+    vendor.lineage.livedisplay@2.0-service-sysfs
 
 # RenderScript HAL
 PRODUCT_PACKAGES += \

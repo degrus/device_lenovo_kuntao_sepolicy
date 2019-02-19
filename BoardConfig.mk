@@ -93,6 +93,7 @@ TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS := 0x02000000U
 # Filesystem
 BOARD_ROOT_EXTRA_SYMLINKS := \
     /vendor/dsp:/dsp \
+    /vendor/fsg:/fsg \
     /vendor/firmware_mnt:/firmware \
     /mnt/vendor/persist:/persist
 
